@@ -7,8 +7,8 @@ public class StringManipulator {
     public static String reverseString(String str) {
         StringBuilder reversed = new StringBuilder();
 
-        for (int i = str.length() - 1; i >= 0; i--) {
-            reversed.append(str.charAt(i));
+        for (int index = str.length() - 1; index >= 0; index--) {
+            reversed.append(str.charAt(index));
         }
 
         return reversed.toString();
@@ -29,6 +29,17 @@ public class StringManipulator {
         return duplicates;
     }
 
+    public static int countVowels(String inputString) {
+        int count = 0;
+        String vowels = "aeiouAEIOU";
+        for (int index = 0; index < inputString.length(); index++) {
+            if (vowels.contains(String.valueOf(inputString.charAt(index)))) {
+                count++;
+            }
+        }
+        return count;
+    }
+
     public static void main(String[] args) {
         String input = "Shivam Singh";
         String reversedString = reverseString(input);
@@ -38,5 +49,10 @@ public class StringManipulator {
         int[] numbers = {1, 2, 3, 4, 2, 5, 6, 3, 1};
         List<Integer> duplicateNumbers = findDuplicates(numbers);
         System.out.println("Duplicate Numbers: " + duplicateNumbers);
+
+
+        int noOfVowel = countVowels(input);
+        System.out.println("Number of vowel in this string : " + noOfVowel);
     }
 }
+
